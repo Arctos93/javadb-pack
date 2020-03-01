@@ -7,6 +7,7 @@
     <persistence-unit name="pl.sda.jpa.starter">
         <!-- lista klas do mapowania do bazy danych -->
         <class>pl.sda.jpa.starter.basic.CoachEntity</class>
+        <class>pl.sda.jpa.starter.basic.StudentEntity</class>
 
         <!-- domyślnie mechanizmy JPA skanują wszystkie dostępne pakiety i dodają do PU encje które znajdą - ta opcja wyłącza tę funkcjonalność -->
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
@@ -16,16 +17,16 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <!-- url (adres) do bazy danych -->
             <!-- zobacz komentarz w klasie ConnectionViaDriverManager do DB_URL -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa_test?useSSL=false&amp;serverTimezone=Europe/Warsaw" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/school?useSSL=false&amp;serverTimezone=Europe/Warsaw" />
             <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="root" />
+            <property name="javax.persistence.jdbc.password" value="Gudzienki90" />
 
             <!-- Uwaga - przy nazwach parametrów specyficznych dla Hibernate dodajemy prefix hibernate. !-->
             <!-- wyświetlamy na konsolę wszystkie zapytania SQL, które wywołuje dla nas Hibernate -->
             <property name="hibernate.show_sql" value="true" />
             <!-- http://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html#configurations-hbmddl -->
             <!-- opcja 'create' = usuń i odwtórz strukturę bazy danych przy starcie aplikacji, inne opcje: 'create-only', 'create-drop', 'drop', 'none' -->
-            <property name="hibernate.hbm2ddl.auto" value="none" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
             <!-- SQL dialekt -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
         </properties>
